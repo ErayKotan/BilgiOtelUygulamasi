@@ -54,7 +54,7 @@ namespace test
             grs.Show();
             this.Hide();
         }
-        //
+        
         private void btn_musteri_ekle_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
