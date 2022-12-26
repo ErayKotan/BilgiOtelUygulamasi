@@ -143,7 +143,57 @@ namespace BilgiOtelDal
                 return tumpersoneller;
             } // BİTMEDİ DEVAM ETTİR
         }*/
+        public int personelguncelleme(personel eklenenpersonel)
+        {
+            SqlParameter[] guncellenen =
+                {
+                new SqlParameter
+                    {
+                    ParameterName="Personelid",
+                    Value=eklenenpersonel.PersonelId
+                    },
+                new SqlParameter
+                    {
+                    ParameterName="PersonelAd",
+                    Value=eklenenpersonel.PersonelAd
+                    },
+                new SqlParameter
+                    {
+                    ParameterName="PersonelSoyad",
+                    Value=eklenenpersonel.PersonelSoyad
+                    },
+                new SqlParameter
+                    {
+                    ParameterName="PersonelTcKimlik",
+                    Value=eklenenpersonel.PersonelTcKimlik
+                    },
+                new SqlParameter
+                    {
+                    ParameterName="PersonelTelefon",
+                    Value=eklenenpersonel.PersonelTelefon
+                    },
+                new SqlParameter
+                    {
+                    ParameterName="PersonelSaatlikUcret",
+                    Value=eklenenpersonel.PersonelSaatlikUcret
+                    },
+                new SqlParameter
+                    {
+                    ParameterName="PersonelMaas",
+                    Value=eklenenpersonel.PersonelMaas
+                    },            
+                   new SqlParameter
+                    {
+                    ParameterName="PersonelAdres",
+                    Value=eklenenpersonel.PersonelAdres
+                    },
+                   
 
+                };
+
+            int eklenenperonelsatir = BilgiOtelHelperSql.myExecuteNonquery("sp_Personel_Guncelleme", guncellenen, "sp");
+            return eklenenperonelsatir;
+        }
 
     }
 }
